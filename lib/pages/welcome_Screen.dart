@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quiz_cash/pages/alert_dialog_1.dart';
+import 'package:quiz_cash/pages/language_selection.dart';
 
-class WelcomeScreen extends StatelessWidget {
+class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
+
+  @override
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen> {
+  bool changeValue = false;
 
   @override
   Widget build(BuildContext context) {
@@ -9,18 +19,20 @@ class WelcomeScreen extends StatelessWidget {
       body: Container(
         height: double.infinity,
         decoration: const BoxDecoration(
-          gradient: LinearGradient(colors: [
-            Color(0xff45bf5d),
-            Color(0xff88db94),
-          ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage(
+              "assets/images/Rectangle.png",
+            ),
+          ),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 34),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const SizedBox(
-                  height: 100,
+                SizedBox(
+                  height: 100.h,
                 ),
                 Center(
                   child: SizedBox(
@@ -29,90 +41,115 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 40,
+                SizedBox(
+                  height: 40.h,
                 ),
-                const Text(
-                  "Choose your login method.",
-                ),
-                const SizedBox(
-                  height: 4,
-                ),
-                const Text(
-                  "Earn QuizCash",
-                ),
-                const SizedBox(
-                  height: 24,
-                ),
-                Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: Colors.grey, width: 1.5),
+                Text(
+                  textAlign: TextAlign.center,
+                  "Choose your login method \n Earn QuizCash",
+                  style: TextStyle(
+                    fontSize: 18.sp,
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 60),
-                    child: Row(
-                      // mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset("assets/images/google.png"),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        const Text(
-                          "Continue with Google",
-                          style: TextStyle(
-                            fontSize: 17,
+                ),
+                SizedBox(
+                  height: 24.h,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LanguageSelection(),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    height: 50.h,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(color: Colors.grey, width: 1.5.w),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 26.w),
+                      child: Row(
+                        // mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset("assets/images/google.png"),
+                          SizedBox(
+                            width: 20.w,
                           ),
-                        ),
-                      ],
+                          Text(
+                            "Continue with Google",
+                            style: TextStyle(
+                              fontSize: 17.sp,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: 10.h,
                 ),
-                Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: Colors.grey, width: 1.5),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 60),
-                    child: Row(
-                      // mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset("assets/images/facebook.png"),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        const Text(
-                          "Continue with Facebook",
-                          style: TextStyle(
-                            fontSize: 17,
+                GestureDetector(
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return const NextAlertDialog();
+                        });
+                  },
+                  child: Container(
+                    height: 50.h,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(25).r,
+                      border: Border.all(color: Colors.grey, width: 1.5.w),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 26.w),
+                      child: Row(
+                        // mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset("assets/images/facebook.png"),
+                          SizedBox(
+                            width: 20.w,
                           ),
-                        ),
-                      ],
+                          Text(
+                            "Continue with Facebook",
+                            style: TextStyle(
+                              fontSize: 17.sp,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
+                ),
+                SizedBox(
+                  height: 10.h,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Checkbox(value: true, onChanged: (value) {}),
-                    const Text(
+                    Checkbox(value: changeValue, onChanged: (value) {
+                      setState((){
+                        changeValue=value!;
+                      });
+                    }),
+
+                    Text(
                       "I have read and agree to",
                       style: TextStyle(
-                        fontSize: 17,
+                        fontSize: 17.sp,
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 24,
+                SizedBox(
+                  height: 40.h,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
