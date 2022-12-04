@@ -334,7 +334,7 @@ class MiningScreenTwo extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 10,
                       ),
                       ButtonWidget(
                         height: 60,
