@@ -15,9 +15,12 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(Duration(seconds: 3), (() {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (BuildContext context) => const WelcomeScreen()));
+    Future.delayed(const Duration(seconds: 4), (() {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (BuildContext context) => const WelcomeScreen(),
+        ),
+      );
     }));
   }
 
@@ -27,10 +30,12 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Container(
         height: double.infinity,
         decoration: const BoxDecoration(
-          gradient: LinearGradient(colors: [
-            Color(0xff45bf5d),
-            Color(0xff88db94),
-          ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage(
+              "assets/images/Rectangle.png",
+            ),
+          ),
         ),
         child: Center(
           child: Image.asset(
