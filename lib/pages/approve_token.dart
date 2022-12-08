@@ -76,7 +76,7 @@ class _ApprovalTokenScreenState extends State<ApprovalTokenScreen> {
                           SizedBox(height: 30.h),
                           const Text(
                             "Buy Token",
-                            style: TextStyle(fontSize: 22,fontWeight: FontWeight.w600),;
+                            style: TextStyle(fontSize: 22,fontWeight: FontWeight.w600),
                           ),
                           SizedBox(height: 60.h),
                           ButtonWidget(
