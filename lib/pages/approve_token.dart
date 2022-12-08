@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quiz_cash/pages/bottom_tab_bar.dart';
+import 'package:quiz_cash/pages/buy_token.dart';
 import 'package:quiz_cash/pages/constants/colors.dart';
-import 'package:quiz_cash/pages/quiz_home_screen.dart';
-import 'package:quiz_cash/pages/quiz_page.dart';
-import 'package:quiz_cash/widgets/action_button.dart';
 import 'package:quiz_cash/widgets/button_item.dart';
 import 'package:quiz_cash/widgets/token_text_field.dart';
 
-class BuyTokenScreen extends StatefulWidget {
-  const BuyTokenScreen({Key? key}) : super(key: key);
+class ApprovalTokenScreen extends StatefulWidget {
+  const ApprovalTokenScreen({Key? key}) : super(key: key);
 
   @override
-  State<BuyTokenScreen> createState() => _BuyTokenScreenState();
+  State<ApprovalTokenScreen> createState() => _ApprovalTokenScreenState();
 }
 
-class _BuyTokenScreenState extends State<BuyTokenScreen> {
+class _ApprovalTokenScreenState extends State<ApprovalTokenScreen> {
   bool status = false;
 
   @override
@@ -79,18 +76,20 @@ class _BuyTokenScreenState extends State<BuyTokenScreen> {
                           SizedBox(height: 30.h),
                           const Text(
                             "Buy Token",
-                            style: TextStyle(fontSize: 22,fontWeight: FontWeight.w600),
+                            style: TextStyle(fontSize: 22,fontWeight: FontWeight.w600),;
                           ),
-                          SizedBox(height: 80.h),
-                          const TokenTextField(
-                            hintText: 'Enter Token',
-                          ),
-                          SizedBox(height: 24.h),
+                          SizedBox(height: 60.h),
                           ButtonWidget(
                               height: 55,
                               width: double.infinity,
-                              ontap: () {},
-                              title: "Buy"),
+                              ontap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const BuyTokenScreen()));
+                              },
+                              title: "Approve"),
                         ],
                       ),
                     ),
@@ -103,20 +102,6 @@ class _BuyTokenScreenState extends State<BuyTokenScreen> {
                       ),
                     ),
                   ],
-                ),
-                SizedBox(
-                  height: 90.h,
-                ),
-                ButtonWidget(
-                  height: 55,
-                  width: 130,
-                  ontap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const BottomTabBar()));
-                  },
-                  title: "Proceed",
                 ),
               ],
             ),

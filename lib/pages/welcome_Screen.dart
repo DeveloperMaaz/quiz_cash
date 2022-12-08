@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quiz_cash/pages/alert_dialog_1.dart';
+import 'package:quiz_cash/pages/approve_token.dart';
 import 'package:quiz_cash/pages/language_selection.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -16,160 +17,62 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        height: double.infinity,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(
-              "assets/images/Rectangle.png",
+      
+      body: SafeArea(
+        child: Container(
+          height: double.infinity,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(
+                "assets/images/Rectangle.png",
+              ),
             ),
           ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 34),
-          child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 34),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  height: 100.h,
-                ),
-                Center(
-                  child: SizedBox(
-                    child: Image.asset(
-                      "assets/images/welcomePic.png",
-                    ),
-                  ),
+                Image.asset(
+                  "assets/images/welcomePic.png",
                 ),
                 SizedBox(
                   height: 40.h,
-                ),
-                Text(
-                  textAlign: TextAlign.center,
-                  "Choose your login method \n Earn QuizCash",
-                  style: TextStyle(
-                    fontSize: 18.sp,
-                  ),
-                ),
-                SizedBox(
-                  height: 24.h,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => LanguageSelection(),
-                      ),
-                    );
-                  },
-                  child: Container(
-                    height: 50.h,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: Colors.grey, width: 1.5.w),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 26.w),
-                      child: Row(
-                        // mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset("assets/images/google.png"),
-                          SizedBox(
-                            width: 20.w,
-                          ),
-                          Text(
-                            "Continue with Google",
-                            style: TextStyle(
-                              fontSize: 17.sp,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10.h,
                 ),
                 GestureDetector(
                   onTap: () {
                     showDialog(
                         context: context,
                         builder: (context) {
-                          return const NextAlertDialog();
+                          return const ApprovalTokenScreen();
                         });
                   },
                   child: Container(
-                    height: 50.h,
+                    height: 55.h,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(25).r,
                       border: Border.all(color: Colors.grey, width: 1.5.w),
                     ),
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 26.w),
-                      child: Row(
-                        // mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset("assets/images/facebook.png"),
-                          SizedBox(
-                            width: 20.w,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset("assets/images/fox.png"),
+                        SizedBox(
+                          width: 20.w,
+                        ),
+                        Text(
+                          "Connect wallet",
+                          style: TextStyle(
+                            fontSize: 17.sp,
                           ),
-                          Text(
-                            "Continue with Facebook",
-                            style: TextStyle(
-                              fontSize: 17.sp,
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Checkbox(value: changeValue, onChanged: (value) {
-                      setState((){
-                        changeValue=value!;
-                      });
-                    }),
 
-                    Text(
-                      "I have read and agree to",
-                      style: TextStyle(
-                        fontSize: 17.sp,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 40.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text(
-                      "Terms & Condition",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff3989d5),
-                      ),
-                    ),
-                    Text(
-                      "Privacy & Policy",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff3989d5),
-                      ),
-                    )
-                  ],
-                )
               ],
             ),
           ),
