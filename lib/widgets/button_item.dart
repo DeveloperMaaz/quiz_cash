@@ -23,9 +23,9 @@ class ButtonWidget extends StatelessWidget {
         height: height,
         width: width,
         decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.black26,
-          ),
+          // border: Border.all(
+          //   color: Colors.black26,
+          // ),
           color: AppColors.btnGreenColor,
           borderRadius: BorderRadius.circular(30),
         ),
