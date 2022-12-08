@@ -1,21 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quiz_cash/pages/bottom_tab_bar.dart';
-import 'package:quiz_cash/pages/constants/colors.dart';
-import 'package:quiz_cash/pages/quiz_home_screen.dart';
-import 'package:quiz_cash/pages/quiz_page.dart';
-import 'package:quiz_cash/widgets/action_button.dart';
-import 'package:quiz_cash/widgets/button_item.dart';
-import 'package:quiz_cash/widgets/token_text_field.dart';
+import '../widgets/button_item.dart';
+import '../widgets/token_text_field.dart';
+import 'constants/colors.dart';
 
-class BuyTokenScreen extends StatefulWidget {
-  const BuyTokenScreen({Key? key}) : super(key: key);
+class ClaimTokenScreen extends StatefulWidget {
+  const ClaimTokenScreen({Key? key}) : super(key: key);
 
   @override
-  State<BuyTokenScreen> createState() => _BuyTokenScreenState();
+  State<ClaimTokenScreen> createState() => _ClaimTokenScreenState();
 }
 
-class _BuyTokenScreenState extends State<BuyTokenScreen> {
+class _ClaimTokenScreenState extends State<ClaimTokenScreen> {
   bool status = false;
 
   @override
@@ -42,7 +38,7 @@ class _BuyTokenScreenState extends State<BuyTokenScreen> {
                       "Back",
                       style: TextStyle(
                         fontSize: 22.sp,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ],
@@ -81,7 +77,7 @@ class _BuyTokenScreenState extends State<BuyTokenScreen> {
                             "Buy Token",
                             style: TextStyle(fontSize: 22,fontWeight: FontWeight.w600),
                           ),
-                          SizedBox(height: 80.h),
+                          SizedBox(height: 25.h),
                           const TokenTextField(
                             hintText: 'Enter Token',
                           ),
@@ -91,6 +87,12 @@ class _BuyTokenScreenState extends State<BuyTokenScreen> {
                               width: double.infinity,
                               ontap: () {},
                               title: "Buy"),
+                          SizedBox(height: 24.h),
+                          ButtonWidget(
+                              height: 55,
+                              width: double.infinity,
+                              ontap: () {},
+                              title: "Confirm"),
                         ],
                       ),
                     ),
@@ -103,20 +105,6 @@ class _BuyTokenScreenState extends State<BuyTokenScreen> {
                       ),
                     ),
                   ],
-                ),
-                SizedBox(
-                  height: 90.h,
-                ),
-                ButtonWidget(
-                  height: 55,
-                  width: 130,
-                  ontap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const BottomTabBar()));
-                  },
-                  title: "Proceed",
                 ),
               ],
             ),

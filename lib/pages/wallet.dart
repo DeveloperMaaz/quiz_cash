@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quiz_cash/pages/claim_token.dart';
 import '../widgets/button_item.dart';
 import 'constants/colors.dart';
 
@@ -271,7 +272,13 @@ class _WalletScreenState extends State<WalletScreen> {
                           ButtonWidget(
                             height: 50.h,
                             width: 200.w,
-                            ontap: () {},
+                            ontap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                      const ClaimTokenScreen()));
+                            },
                             title: "Swap & Transfer",
                           )
                         ],
