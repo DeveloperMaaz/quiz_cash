@@ -221,7 +221,7 @@ class _WalletScreenState extends State<WalletScreen> {
                     Container(
                       padding:
                           EdgeInsets.symmetric(horizontal: 20.w, vertical: 5.h),
-                      height: 240.h,
+                      height: 270.h,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(5),
